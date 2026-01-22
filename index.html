@@ -1,118 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ItsCaptainEXE</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ItsCaptainEXE</title>
 
-  <style>
-    :root {
-      --bg-main: #0a0714;
-      --bg-panel: rgba(20, 16, 40, 0.55);
-      --text-main: #eae9f2;
-      --text-muted: #b8b5d0;
-      --accent: #b48cff;
-      --accent-soft: rgba(180, 140, 255, 0.35);
-    }
+<style>
+:root {
+  --bg: #0b0a14;
+  --panel: rgba(22, 20, 40, 0.55);
+  --border: rgba(255,255,255,0.08);
+  --text: #f3f2fa;
+  --muted: #b7b4d8;
+  --accent: #9b8cff;
+  --accent-soft: rgba(155,140,255,0.35);
+}
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
-      background:
-        radial-gradient(900px 500px at 20% -10%, #2a1f5c, transparent 60%),
-        radial-gradient(700px 400px at 80% 10%, #1e3a6f, transparent 55%),
-        radial-gradient(600px 600px at 50% 100%, #1a123a, transparent 60%),
-        var(--bg-main);
-      color: var(--text-main);
-      line-height: 1.7;
-    }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(800px 500px at 15% -10%, #2a235e, transparent 60%),
+    radial-gradient(700px 400px at 85% 10%, #1c2f66, transparent 55%),
+    radial-gradient(600px 600px at 50% 100%, #140f2f, transparent 65%),
+    var(--bg);
+  line-height: 1.7;
+}
 
-    .container {
-      max-width: 880px;
-      margin: 0 auto;
-      padding: 96px 24px 120px;
-    }
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 110px 24px 140px;
+}
 
-    /* HERO */
-    .hero {
-      margin-bottom: 88px;
-    }
+/* HERO */
+.hero {
+  margin-bottom: 90px;
+}
 
-    .name {
-      font-size: clamp(2.8rem, 5vw, 4.2rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-    }
+.name {
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
 
-    .accent {
-      color: var(--accent);
-      text-shadow: 0 0 30px var(--accent-soft);
-    }
+.name span {
+  color: var(--accent);
+  text-shadow: 0 0 40px var(--accent-soft);
+}
 
-    .hero-line {
-      margin-top: 18px;
-      font-size: 1.15rem;
-      max-width: 760px;
-      color: var(--text-muted);
-    }
+.hero p {
+  margin-top: 20px;
+  max-width: 760px;
+  font-size: 1.15rem;
+  color: var(--muted);
+}
 
-    .links {
-      margin-top: 34px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
+/* BIO PANEL */
+.bio {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 42px 38px;
+  backdrop-filter: blur(18px);
+}
 
-    .links a {
-      text-decoration: none;
-      padding: 11px 18px;
-      border-radius: 14px;
-      background: var(--bg-panel);
-      color: var(--text-main);
-      font-weight: 500;
-      border: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(10px);
-      transition: transform .2s ease, box-shadow .2s ease, border .2s ease;
-    }
+.bio p {
+  margin-bottom: 20px;
+}
 
-    .links a:hover {
-      transform: translateY(-2px);
-      border-color: var(--accent);
-      box-shadow: 0 0 0 1px var(--accent), 0 0 32px var(--accent-soft);
-    }
+.bio p:last-child {
+  margin-bottom: 0;
+}
 
-    /* CONTENT */
-    section {
-      margin-bottom: 64px;
-      padding: 36px 34px;
-      background: var(--bg-panel);
-      border-radius: 22px;
-      border: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(14px);
-    }
+/* FOOTER LINKS */
+.footer {
+  margin-top: 110px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
 
-    section p {
-      color: var(--text-main);
-      margin-bottom: 18px;
-    }
+.footer a {
+  color: var(--text);
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: border 0.25s ease, color 0.25s ease;
+}
 
-    section p:last-child {
-      margin-bottom: 0;
-    }
+.footer a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
 
-    /* FOOTER */
-    footer {
-      margin-top: 120px;
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-  </style>
+/* SUBTLE POLISH */
+::selection {
+  background: var(--accent-soft);
+}
+</style>
 </head>
 
 <body>
@@ -121,23 +117,17 @@
     <!-- HERO -->
     <div class="hero">
       <div class="name">
-        ItsCaptain<span class="accent">EXE</span>
+        ItsCaptain<span>EXE</span>
       </div>
-
-      <div class="hero-line">
+      <p>
         I build polished systems, thoughtful interfaces, and large-scale experiences
         under real-world constraints. Developer, designer, and experimenter — focused
         on quality, performance, and the details people feel but rarely notice.
-      </div>
-
-      <div class="links">
-        <a href="https://github.com/slayddev" target="_blank">GitHub</a>
-        <a href="https://slayddev.vercel.app" target="_blank">Slayd Development</a>
-      </div>
+      </p>
     </div>
 
     <!-- BIO -->
-    <section>
+    <div class="bio">
       <p>
         I’m an experienced developer focused on building systems that scale, feel intentional,
         and respect the user. My work sits at the intersection of web design, software
@@ -146,10 +136,10 @@
       </p>
 
       <p>
-        I’m the founder and lead developer behind Slayd Development (linked below), where I
-        build and refine interactive experiences, internal tools, and front-end systems
-        designed to be both performant and visually intentional. Slayd Development serves as
-        the hub for my public work, experiments, and long-term projects.
+        I’m the founder and lead developer behind Slayd Development, where I build and refine
+        interactive experiences, internal tools, and front-end systems designed to be both
+        performant and visually intentional. Slayd Development serves as the hub for my public
+        work, experiments, and long-term projects.
       </p>
 
       <p>
@@ -181,20 +171,23 @@
       <p>
         I strongly believe good software should feel intentional and respectful, even if that
         means slowing down. Refinement almost always beats rushing something out, even when
-        people are waiting. I notice details most people don’t — timing, spacing, transitions —
-        and once I see them, I can’t unsee them.
+        people are waiting.
       </p>
 
       <p>
         Long-term, I aim to be known as a developer who builds things people remember — not
-        because they’re popular, but because they’re well-made. Someone respected for both
-        technical depth and approachability, and for caring about quality at scale.
+        because they’re popular, but because they’re well-made.
       </p>
-    </section>
+    </div>
 
-    <footer>
-      © ItsCaptainEXE · Built with intent
-    </footer>
+    <!-- FOOTER -->
+    <div class="footer">
+      <div>© ItsCaptainEXE</div>
+      <div>
+        <a href="https://github.com/slayddev" target="_blank">GitHub</a> ·
+        <a href="https://slayddev.vercel.app" target="_blank">Slayd Development</a>
+      </div>
+    </div>
 
   </div>
 </body>
