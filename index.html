@@ -14,6 +14,7 @@
   --muted: #b7b4d8;
   --accent: #9b8cff;
   --accent-soft: rgba(155,140,255,0.35);
+  --cursor-size: 12px;
 }
 
 * {
@@ -31,6 +32,7 @@ body {
     radial-gradient(600px 600px at 50% 100%, #140f2f, transparent 65%),
     var(--bg);
   line-height: 1.7;
+  cursor: none; /* hide default cursor */
 }
 
 .container {
@@ -48,6 +50,7 @@ body {
   font-size: clamp(3rem, 5vw, 4.5rem);
   font-weight: 800;
   letter-spacing: -0.03em;
+  text-shadow: 0 0 20px var(--accent-soft);
 }
 
 .name span {
@@ -60,6 +63,11 @@ body {
   max-width: 760px;
   font-size: 1.15rem;
   color: var(--muted);
+  transition: transform 0.3s ease;
+}
+
+.hero p:hover {
+  transform: translateY(-2px);
 }
 
 /* BIO PANEL */
@@ -73,10 +81,17 @@ body {
 
 .bio p {
   margin-bottom: 20px;
+  line-height: 1.75;
+  position: relative;
+  transition: color 0.25s ease;
 }
 
 .bio p:last-child {
   margin-bottom: 0;
+}
+
+.bio p:hover::after {
+  content: " 😎"; /* subtle joke */
 }
 
 /* FOOTER LINKS */
@@ -102,93 +117,143 @@ body {
 .footer a:hover {
   border-color: var(--accent);
   color: var(--accent);
+  text-shadow: 0 0 8px var(--accent-soft);
 }
 
 /* SUBTLE POLISH */
 ::selection {
   background: var(--accent-soft);
 }
+
+/* CUSTOM CURSOR */
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--cursor-size);
+  height: var(--cursor-size);
+  background: #fff;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, transform 0.1s ease, background 0.25s ease;
+  z-index: 10000;
+  mix-blend-mode: difference;
+}
+
+.cursor.hover {
+  width: 24px;
+  height: 24px;
+  background: rgba(155,140,255,0.5);
+}
+
+/* ANIMATED GLOW */
+.bio p, .hero p {
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+.bio p:hover {
+  color: #fff;
+  text-shadow: 0 0 12px var(--accent-soft);
+}
 </style>
 </head>
 
 <body>
-  <div class="container">
 
-    <!-- HERO -->
-    <div class="hero">
-      <div class="name">
-        ItsCaptain<span>EXE</span>
-      </div>
-      <p>
-        I build polished systems, thoughtful interfaces, and large-scale experiences
-        under real-world constraints. Developer, designer, and experimenter — focused
-        on quality, performance, and the details people feel but rarely notice.
-      </p>
+<div class="cursor" id="cursor"></div>
+
+<div class="container">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="name">
+      ItsCaptain<span>EXE</span>
     </div>
-
-    <!-- BIO -->
-    <div class="bio">
-      <p>
-        I’m an experienced developer focused on building systems that scale, feel intentional,
-        and respect the user. My work sits at the intersection of web design, software
-        development, and experimental technology — with a strong emphasis on polish,
-        performance, and long-term maintainability.
-      </p>
-
-      <p>
-        I’m the founder and lead developer behind Slayd Development, where I build and refine
-        interactive experiences, internal tools, and front-end systems designed to be both
-        performant and visually intentional. Slayd Development serves as the hub for my public
-        work, experiments, and long-term projects.
-      </p>
-
-      <p>
-        Beyond my own work, I’ve assisted in the development of two major Roblox games,
-        contributing to large-scale systems used by tens of thousands of players. Working at
-        that scale taught me how quickly small design decisions compound — and how important
-        performance, stability, and clarity become when real users are involved.
-      </p>
-
-      <p>
-        I regularly build under real constraints: performance limits, large user bases,
-        hardware differences, time pressure, and compatibility across older systems and
-        devices. Just because something works on a high-end machine doesn’t mean it’s
-        acceptable. Good systems should adapt to the user — not the other way around.
-      </p>
-
-      <p>
-        A large portion of my work remains private or experimental: internal tools, beta
-        systems, archived builds, and paused projects that may resurface when the timing is
-        right. I prefer shipping things when they’re ready, not rushed.
-      </p>
-
-      <p>
-        I’m also a Windows Insider (Dev Channel), which reflects how I approach technology —
-        staying close to evolving platforms, analyzing UX decisions early, and understanding
-        how small details scale across millions of users.
-      </p>
-
-      <p>
-        I strongly believe good software should feel intentional and respectful, even if that
-        means slowing down. Refinement almost always beats rushing something out, even when
-        people are waiting.
-      </p>
-
-      <p>
-        Long-term, I aim to be known as a developer who builds things people remember — not
-        because they’re popular, but because they’re well-made.
-      </p>
-    </div>
-
-    <!-- FOOTER -->
-    <div class="footer">
-      <div>© ItsCaptainEXE</div>
-      <div>
-        <a href="https://github.com/slayddev" target="_blank">GitHub</a> ·
-        <a href="https://slayddev.vercel.app" target="_blank">Slayd Development</a>
-      </div>
-    </div>
-
+    <p>
+      I build polished systems, thoughtful interfaces, and large-scale experiences
+      under real-world constraints. Developer, designer, and experimenter — focused
+      on quality, performance, and the details people feel but rarely notice.
+    </p>
   </div>
+
+  <!-- BIO -->
+  <div class="bio">
+    <p>
+      I’m an experienced developer focused on building systems that scale, feel intentional,
+      and respect the user. My work sits at the intersection of web design, software
+      development, and experimental technology — with a strong emphasis on polish,
+      performance, and long-term maintainability. (I occasionally break stuff on purpose... just kidding)
+    </p>
+
+    <p>
+      I’m the founder and lead developer behind Slayd Development, where I build and refine
+      interactive experiences, internal tools, and front-end systems designed to be both
+      performant and visually intentional. Slayd Development serves as the hub for my public
+      work, experiments, and long-term projects.
+    </p>
+
+    <p>
+      Beyond my own work, I’ve assisted in the development of two major Roblox games,
+      contributing to large-scale systems used by tens of thousands of players. Working at
+      that scale taught me how quickly small design decisions compound — and how important
+      performance, stability, and clarity become when real users are involved. (yes, I notice tiny things most people never see)
+    </p>
+
+    <p>
+      I regularly build under real constraints: performance limits, large user bases,
+      hardware differences, time pressure, and compatibility across older systems and
+      devices. Just because something works on a high-end machine doesn’t mean it’s
+      acceptable. Good systems should adapt to the user — not the other way around.
+    </p>
+
+    <p>
+      A large portion of my work remains private or experimental: internal tools, beta
+      systems, archived builds, and paused projects that may resurface when the timing is
+      right. I prefer shipping things when they’re ready, not rushed. (patience is a virtue)
+    </p>
+
+    <p>
+      I’m also a Windows Insider (Dev Channel), which reflects how I approach technology —
+      staying close to evolving platforms, analyzing UX decisions early, and understanding
+      how small details scale across millions of users. I see features before anyone else, and yes — it’s as cool as it sounds.
+    </p>
+
+    <p>
+      I strongly believe good software should feel intentional and respectful, even if that
+      means slowing down. Refinement almost always beats rushing something out, even when
+      people are waiting.
+    </p>
+
+    <p>
+      Long-term, I aim to be known as a developer who builds things people remember — not
+      because they’re popular, but because they’re well-made.
+    </p>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div>© ItsCaptainEXE</div>
+    <div>
+      <a href="https://github.com/slayddev" target="_blank">GitHub</a> ·
+      <a href="https://slayddev.vercel.app" target="_blank">Slayd Development</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// CUSTOM CURSOR
+const cursor = document.getElementById("cursor");
+
+document.addEventListener("mousemove", e => {
+  cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+});
+
+document.querySelectorAll("a, .bio p, .hero p").forEach(el => {
+  el.addEventListener("mouseenter", () => cursor.classList.add("hover"));
+  el.addEventListener("mouseleave", () => cursor.classList.remove("hover"));
+});
+</script>
+
 </body>
 </html>
