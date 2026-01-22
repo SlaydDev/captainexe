@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ItsCaptainEXE — Developer</title>
+  <title>ItsCaptainEXE</title>
 
   <style>
     :root {
-      --bg: #0b0d10;
-      --panel: #11141a;
-      --text: #e6e8eb;
-      --muted: #9aa1ac;
-      --accent: #4da3ff;
-      --glow: rgba(77,163,255,0.35);
+      --bg-main: #0a0714;
+      --bg-panel: rgba(20, 16, 40, 0.55);
+      --text-main: #eae9f2;
+      --text-muted: #b8b5d0;
+      --accent: #b48cff;
+      --accent-soft: rgba(180, 140, 255, 0.35);
     }
 
     * {
@@ -22,91 +22,94 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
-      background: radial-gradient(1200px 600px at 50% -200px, #142033, var(--bg));
-      color: var(--text);
-      line-height: 1.6;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+      background:
+        radial-gradient(900px 500px at 20% -10%, #2a1f5c, transparent 60%),
+        radial-gradient(700px 400px at 80% 10%, #1e3a6f, transparent 55%),
+        radial-gradient(600px 600px at 50% 100%, #1a123a, transparent 60%),
+        var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.7;
     }
 
     .container {
-      max-width: 900px;
+      max-width: 880px;
       margin: 0 auto;
-      padding: 80px 24px;
+      padding: 96px 24px 120px;
     }
 
     /* HERO */
     .hero {
-      margin-bottom: 80px;
+      margin-bottom: 88px;
     }
 
     .name {
-      font-size: clamp(2.6rem, 5vw, 4rem);
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
       font-weight: 800;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.03em;
     }
 
-    .tagline {
-      margin-top: 12px;
-      font-size: 1.1rem;
-      color: var(--muted);
-      max-width: 700px;
-    }
-
-    .highlight {
+    .accent {
       color: var(--accent);
-      text-shadow: 0 0 24px var(--glow);
+      text-shadow: 0 0 30px var(--accent-soft);
+    }
+
+    .hero-line {
+      margin-top: 18px;
+      font-size: 1.15rem;
+      max-width: 760px;
+      color: var(--text-muted);
     }
 
     .links {
-      margin-top: 28px;
+      margin-top: 34px;
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
     }
 
     .links a {
-      padding: 10px 16px;
-      border-radius: 10px;
-      background: var(--panel);
-      color: var(--text);
       text-decoration: none;
+      padding: 11px 18px;
+      border-radius: 14px;
+      background: var(--bg-panel);
+      color: var(--text-main);
       font-weight: 500;
-      border: 1px solid rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
       transition: transform .2s ease, box-shadow .2s ease, border .2s ease;
     }
 
     .links a:hover {
       transform: translateY(-2px);
       border-color: var(--accent);
-      box-shadow: 0 0 0 1px var(--accent), 0 0 30px var(--glow);
+      box-shadow: 0 0 0 1px var(--accent), 0 0 32px var(--accent-soft);
     }
 
-    /* SECTIONS */
+    /* CONTENT */
     section {
-      margin-bottom: 72px;
+      margin-bottom: 64px;
+      padding: 36px 34px;
+      background: var(--bg-panel);
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(14px);
     }
 
-    h2 {
-      font-size: 1.6rem;
-      margin-bottom: 16px;
-      letter-spacing: -0.01em;
+    section p {
+      color: var(--text-main);
+      margin-bottom: 18px;
     }
 
-    p {
-      color: var(--text);
-      max-width: 780px;
-    }
-
-    .muted {
-      color: var(--muted);
+    section p:last-child {
+      margin-bottom: 0;
     }
 
     /* FOOTER */
     footer {
       margin-top: 120px;
-      padding-top: 32px;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      color: var(--muted);
+      text-align: center;
+      color: var(--text-muted);
       font-size: 0.9rem;
     }
   </style>
@@ -118,11 +121,13 @@
     <!-- HERO -->
     <div class="hero">
       <div class="name">
-        ItsCaptain<span class="highlight">EXE</span>
+        ItsCaptain<span class="accent">EXE</span>
       </div>
-      <div class="tagline">
-        Developer focused on building things people remember — not because they’re loud,
-        but because they’re <span class="highlight">well-made</span>.
+
+      <div class="hero-line">
+        I build polished systems, thoughtful interfaces, and large-scale experiences
+        under real-world constraints. Developer, designer, and experimenter — focused
+        on quality, performance, and the details people feel but rarely notice.
       </div>
 
       <div class="links">
@@ -131,70 +136,64 @@
       </div>
     </div>
 
-    <!-- ABOUT -->
+    <!-- BIO -->
     <section>
-      <h2>About</h2>
       <p>
-        I’m a developer who builds with intention. I care deeply about how things feel,
-        not just whether they technically work. Timing, spacing, transitions, performance —
-        the details most people overlook are the ones I obsess over.
+        I’m an experienced developer focused on building systems that scale, feel intentional,
+        and respect the user. My work sits at the intersection of web design, software
+        development, and experimental technology — with a strong emphasis on polish,
+        performance, and long-term maintainability.
       </p>
-      <br/>
+
       <p>
-        It all started with wanting to create something that didn’t already exist — or to
-        improve something until it felt right. Over time, that mindset turned into a focus
-        on systems, design, and development that scale without losing quality.
+        I’m the founder and lead developer behind Slayd Development (linked below), where I
+        build and refine interactive experiences, internal tools, and front-end systems
+        designed to be both performant and visually intentional. Slayd Development serves as
+        the hub for my public work, experiments, and long-term projects.
+      </p>
+
+      <p>
+        Beyond my own work, I’ve assisted in the development of two major Roblox games,
+        contributing to large-scale systems used by tens of thousands of players. Working at
+        that scale taught me how quickly small design decisions compound — and how important
+        performance, stability, and clarity become when real users are involved.
+      </p>
+
+      <p>
+        I regularly build under real constraints: performance limits, large user bases,
+        hardware differences, time pressure, and compatibility across older systems and
+        devices. Just because something works on a high-end machine doesn’t mean it’s
+        acceptable. Good systems should adapt to the user — not the other way around.
+      </p>
+
+      <p>
+        A large portion of my work remains private or experimental: internal tools, beta
+        systems, archived builds, and paused projects that may resurface when the timing is
+        right. I prefer shipping things when they’re ready, not rushed.
+      </p>
+
+      <p>
+        I’m also a Windows Insider (Dev Channel), which reflects how I approach technology —
+        staying close to evolving platforms, analyzing UX decisions early, and understanding
+        how small details scale across millions of users.
+      </p>
+
+      <p>
+        I strongly believe good software should feel intentional and respectful, even if that
+        means slowing down. Refinement almost always beats rushing something out, even when
+        people are waiting. I notice details most people don’t — timing, spacing, transitions —
+        and once I see them, I can’t unsee them.
+      </p>
+
+      <p>
+        Long-term, I aim to be known as a developer who builds things people remember — not
+        because they’re popular, but because they’re well-made. Someone respected for both
+        technical depth and approachability, and for caring about quality at scale.
       </p>
     </section>
 
-    <!-- WHAT I DO -->
-    <section>
-      <h2>What I Do</h2>
-      <p>
-        I work primarily in web development and interactive systems, while constantly
-        experimenting with software, tooling, and creative technology. I enjoy building
-        publicly finished work, while privately iterating on ideas until they’re ready.
-      </p>
-      <br/>
-      <p class="muted">
-        HTML, CSS, JavaScript, Java, Lua · Blender · Roblox Studio · GitHub Pages · Vercel
-      </p>
-    </section>
-
-    <!-- SCALE & IMPACT -->
-    <section>
-      <h2>Scale & Impact</h2>
-      <p>
-        I’ve assisted in the development of two major Roblox games and currently contribute
-        to large-scale systems with tens of thousands of daily users. Working under real
-        performance limits — older hardware, massive player counts, and live updates —
-        has shaped how I build.
-      </p>
-      <br/>
-      <p>
-        I’ve learned that slowing down and refining almost always beats rushing something
-        out — even when a lot of people are waiting. Quality compounds.
-      </p>
-    </section>
-
-    <!-- PHILOSOPHY -->
-    <section>
-      <h2>Philosophy</h2>
-      <p>
-        To me, quality isn’t about excess detail — it’s about care. A smooth animation
-        instead of a hard cut. A system that degrades gracefully instead of failing loudly.
-        Thoughtful design that respects both performance and people.
-      </p>
-      <br/>
-      <p>
-        I look up to builders who combine technical depth with clarity and creativity —
-        people who can scale systems without sacrificing soul.
-      </p>
-    </section>
-
-    <!-- FOOTER -->
     <footer>
-      © ItsCaptainEXE · Built with care · Linked projects below
+      © ItsCaptainEXE · Built with intent
     </footer>
 
   </div>
